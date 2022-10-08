@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\WordController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -60,9 +63,7 @@ Route::get('admin', function () {
     return view('admin/dashboard/dashboard');
 });
 
-Route::get('admin/newWord', function () {
-    return view('admin/wordControl/newWord');
-});
+
 
 
 
@@ -71,16 +72,23 @@ Route::get('admin/newWord', function () {
 Route::get('/admin', function () {
     return view('admin/dashboard/dashboard');
 });
-// word management 
-Route::get('/newword', function () {
+            // word management 
+// new word
+Route::get('admin/newword', function () {
     return view('admin/wordControl/newword');
 });
-Route::get('/newcat', function () {
+// new cat
+Route::get('admin/newcat', function () {
     return view('admin/wordControl/newcat');
 });
-Route::get('/csv', function () {
+// upload csv
+Route::get('admin/csv', function () {
     return view('admin/wordControl/uploadcsv');
 });
+
+Route::post('admin/newword', [WordController::class, 'createword']);
+Route::post('admin/newcat', [CategoryController::class, 'createcategory']);
+
 
 
 

@@ -6,10 +6,12 @@
             <div class="card-body">
                 <h4 class="card-title mb-4 text-center">Insert a word</h4>
 
-                <form>
+                <form method="POST" action="admin/newword">
+                    @csrf
                     <div class="mb-3">
                         <label for="formrow-firstname-input" class="form-label">Word</label>
-                        <input type="text" class="form-control" id="formrow-firstname-input" placeholder="Enter the word">
+                        <input type="text" class="form-control" id="formrow-firstname-input" name="word"
+                            placeholder="Enter the word">
                     </div>
 
 
@@ -17,7 +19,7 @@
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="formrow-inputState" class="form-label">Parts of speech</label>
-                                <select id="formrow-inputState" class="form-select">
+                                <select id="formrow-inputState" class="form-select" name="pos">
                                     <option selected="">Choose one</option>
                                     <option>Noun</option>
                                     <option>Pronoun</option>
@@ -30,17 +32,29 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
+                        {{-- <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="formrow-inputState" class="form-label">Category</label>
-                                <select id="formrow-inputState" class="form-select">
+                                <select id="formrow-inputState" class="form-select" name="category">
                                     <option selected="">Select one</option>
                                     <option>Easy</option>
                                     <option>Medium</option>
                                     <option>Hard</option>
                                 </select>
                             </div>
+                        </div> --}}
+
+
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label for="formrow-firstname-input" class="form-label">Category ID</label>
+                                <input type="number" class="form-control" id="formrow-firstname-input" name="category_id"
+                                    placeholder="Category ID">
+                            </div>
                         </div>
+
+
+
                     </div>
 
 
@@ -49,17 +63,22 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="formrow-email-input" class="form-label">Synonym</label>
-                                <input type="email" class="form-control" id="formrow-email-input" placeholder="Synonym">
+                                <label class="form-label">Synonym</label>
+                                <input type="text" class="form-control" placeholder="Synonym" name="synonym">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="formrow-password-input" class="form-label">Antonym</label>
-                                <input type="password" class="form-control" id="formrow-password-input"
-                                    placeholder="Antonym">
+                                <label class="form-label">Antonym</label>
+                                <input type="text" class="form-control" placeholder="Antonym" name="antonym">
                             </div>
                         </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formrow-firstname-input" class="form-label">Sentence</label>
+                        <input type="text" class="form-control" id="formrow-firstname-input" name="sentence"
+                            placeholder="Enter a sentence">
                     </div>
 
 
