@@ -12,6 +12,7 @@ class WordController extends Controller
 
         $word = new Word();
         $word->word = $request->word;
+        $word->meaning = $request->meaning;
         $word->pos = $request->pos;
         $word->category_id = $request->category_id;
         $word->synonym = $request->synonym;
@@ -22,5 +23,13 @@ class WordController extends Controller
         $word->save();
 
         return view('admin/wordControl/newword');
+    }
+
+    function wordsequence($id)
+    {
+        $words=Word::where('category_id',$id)->paginate(1);;
+        // dd($words);
+        return view('wordCard/wordCard',['words'=>$words]);
+
     }
 }

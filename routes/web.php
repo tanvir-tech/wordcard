@@ -17,9 +17,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [CategoryController::class, 'catlist']);
 
 Route::middleware('admin:admin')->group(function () {
     Route::get('admin/login',[AdminController::class,'loginForm']);
@@ -31,9 +29,21 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard')->middleware('auth:admin');
+        Route::get('/admin/dashboard', function () {
+            return view('admin/dashboard/dashboard');})->name('dashboard')->middleware('auth:admin');
+
+        Route::get('/admin', function () {
+            return view('dashboard');})->middleware('auth:admin');
+
+        Route::get('/admin/newcat', function () {
+            return view('admin/wordControl/newcat');})->name('newcat')->middleware('auth:admin');
+
+        Route::get('/admin/newword', function () {
+            return view('admin/wordControl/newword');})->name('newword')->middleware('auth:admin');
+
+        Route::get('/admin/csv', function () {
+            return view('admin/wordControl/uploadcsv');})->name('csv')->middleware('auth:admin');
+
 });
 
 Route::middleware([
@@ -50,18 +60,10 @@ Route::middleware([
 
 
 // wordcard 
-Route::get('/practice', function () {
-    return view('wordCard/wordCard');
-});
+Route::get('practice/{id}', [WordController::class,'wordsequence']);
 
+Route::get('/catList', [CategoryController::class, 'catlist']);
 
-Route::get('/catList', function () {
-    return view('wordCard/catList');
-});
-
-Route::get('admin', function () {
-    return view('admin/dashboard/dashboard');
-});
 
 
 
@@ -69,22 +71,22 @@ Route::get('admin', function () {
 
 
 // admin 
-Route::get('/admin', function () {
-    return view('admin/dashboard/dashboard');
-});
+// Route::get('/admin', function () {
+//     return view('admin/dashboard/dashboard');
+// });
             // word management 
 // new word
-Route::get('admin/newword', function () {
-    return view('admin/wordControl/newword');
-});
+// Route::get('admin/newword', function () {
+//     return view('admin/wordControl/newword');
+// });
 // new cat
-Route::get('admin/newcat', function () {
-    return view('admin/wordControl/newcat');
-});
+// Route::get('admin/newcat', function () {
+//     return view('admin/wordControl/newcat');
+// });
 // upload csv
-Route::get('admin/csv', function () {
-    return view('admin/wordControl/uploadcsv');
-});
+// Route::get('admin/csv', function () {
+//     return view('admin/wordControl/uploadcsv');
+// });
 
 Route::post('admin/newword', [WordController::class, 'createword']);
 Route::post('admin/newcat', [CategoryController::class, 'createcategory']);

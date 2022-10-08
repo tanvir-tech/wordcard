@@ -24,7 +24,7 @@ class CategoryController extends Controller
     function catlist()
     {
         $categories=Category::all();
-        return view('/catList',['categories'=>$categories]);
+        return view('wordCard/catList',['categories'=>$categories]);
 
     }
 }

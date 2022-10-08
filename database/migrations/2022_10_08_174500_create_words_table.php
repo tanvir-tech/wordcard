@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('words', function (Blueprint $table) {
             $table->id();
             $table->string('word');
+            $table->string('meaning');
             $table->string('pos');   //parts_of_speech
             $table->integer('category_id');
             $table->string('synonym');

@@ -6,12 +6,18 @@
             <div class="card-body">
                 <h4 class="card-title mb-4 text-center">Insert a word</h4>
 
-                <form method="POST" action="admin/newword">
+                <form method="POST" action="newword">
                     @csrf
                     <div class="mb-3">
                         <label for="formrow-firstname-input" class="form-label">Word</label>
                         <input type="text" class="form-control" id="formrow-firstname-input" name="word"
                             placeholder="Enter the word">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formrow-firstname-input" class="form-label">Meaning</label>
+                        <input type="text" class="form-control" name="meaning"
+                            placeholder="Meaning">
                     </div>
 
 

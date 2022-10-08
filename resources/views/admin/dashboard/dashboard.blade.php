@@ -33,7 +33,7 @@
                                 <p class="text-muted mb-2">Total Word</p>
                                 <h5 class="mb-0">120</h5>
                                 <br>
-                                <a href="admin/newword">Add word</a>
+                                <a href="newword">Add word</a>
                             </div>
 
                             <div class="avatar-sm ms-auto">
@@ -56,7 +56,7 @@
                                 <p class="text-muted mb-2">Category</p>
                                 <h5 class="mb-0">86</h5>
                                 <br>
-                                <a href="admin/newcat">New Category</a>
+                                <a href="newcat">New Category</a>
                             </div>
 
                             <div class="avatar-sm ms-auto">
@@ -77,7 +77,7 @@
                                 <p class="text-muted mb-2">File</p>
                                 <h5 class="mb-0">Upload</h5>
                                 <br>
-                                <a href="admin/csv">Add words from CSV</a>
+                                <a href="csv">Add words from CSV</a>
                             </div>
 
                             <div class="avatar-sm ms-auto">

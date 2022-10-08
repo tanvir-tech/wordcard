@@ -44,7 +44,7 @@ class AdminController extends Controller
     }
 
     function loginForm(){
-        return view('auth.login',['guard'=>'admin']);
+        return view('admin.login',['guard'=>'admin']);
     }
 
     /**

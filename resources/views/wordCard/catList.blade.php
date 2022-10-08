@@ -11,9 +11,8 @@
 
 
         {{-- card  --}}
-        <div class="col-lg-6">
+        {{-- <div class="col-lg-6">
             <div class="card rounded">
-                {{-- <div class="card-header">Category 01</div> --}}
                 <div class="card-body bg-info">
                     <h1 class="text-light text-center">Category 01</h1>
                 </div>
@@ -27,20 +26,23 @@
                     
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- card end  --}}
+
+
+        @foreach ($categories as $category)
         {{-- card  --}}
         <div class="col-lg-6">
             <div class="card rounded">
                 {{-- <div class="card-header">Category 01</div> --}}
                 <div class="card-body bg-info">
-                    <h1 class="text-light text-center">Category 01</h1>
+                    <h1 class="text-light text-center">Category {{$category['id']}} - {{$category['name']}}</h1>
                 </div>
                 <div class="card-footer">
                     <p>
-                        This category contains 50 words
+                        {{$category['description']}}
                     </p>
-                    <a href="practice" class="btn btn-outline-light">
+                    <a href="practice/{{$category['id']}}" class="btn btn-outline-light">
                         Let's practics -->
                     </a>
                     
@@ -48,6 +50,7 @@
             </div>
         </div>
         {{-- card end  --}}
+        @endforeach
         
         
     </div>
