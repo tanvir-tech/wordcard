@@ -1,6 +1,7 @@
+
 @extends('includes/master')
 @section("content")
 
-update word
+make a category
 
 @endsection

@@ -1,6 +1,11 @@
 @extends('includes/master')
 @section("content")
 
-update word
+
+<div class="container">
+    insert a word 
+
+</div>
+
 
 @endsection

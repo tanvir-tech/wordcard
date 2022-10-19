@@ -1,6 +1,6 @@
 @extends('includes/master')
 @section("content")
 
-update word
+upload words from csv
 
 @endsection

@@ -72,6 +72,19 @@ Route::get('/admin', function () {
     return view('admin/dashboard/dashboard');
 });
 
+Route::get('/newword', function () {
+    return view('admin/wordControl/newword');
+});
+Route::get('/newcat', function () {
+    return view('admin/wordControl/newcat');
+});
+Route::get('/csv', function () {
+    return view('admin/wordControl/uploadcsv');
+});
+
+
+
+
 // test
 Route::get('/test', function () {
     return view('includes/master2');

@@ -28,7 +28,12 @@
     <div id="layout-wrapper">
 
         {{ View::make('includes/header') }}
-        @yield('content')
+        
+
+
+        <div class="mt-5 pt-5">
+            @yield('content')
+        </div>
         {{-- {{View::make('includes/footer')}} --}}
 
 
