@@ -7,7 +7,7 @@
                     <span class="logo-sm">
                         {{-- <img src="{{ asset('images/logo.svg') }}" alt="" height="22"> --}}
                         <h2 class="text-info">
-                            Word Card
+                            WC
                         </h2>
                     </span>
                     <span class="logo-lg">
@@ -23,7 +23,7 @@
                     <span class="logo-sm">
                         {{-- <img src="{{ asset('images/logo-light.png') }}" alt="" height="22"> --}}
                         <h2 class="text-light bg-dark">
-                            Word Card
+                            WC
                         </h2>
                     </span>
                     <span class="logo-lg">
@@ -36,6 +36,15 @@
 
 
             </div>
+
+
+
+            
+            
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+
 
             <span class="logo-sm pt-4 pl-3">
                 <h5 class="text-light">
@@ -128,3 +137,9 @@
         </div>
     </div>
 </header>
+
+
+
+
+
+

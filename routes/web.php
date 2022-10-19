@@ -15,7 +15,7 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('wordCard/catList');
+    return view('dashboard');
 });
 
 Route::middleware('admin:admin')->group(function () {
@@ -62,4 +62,17 @@ Route::get('admin', function () {
 
 Route::get('admin/newWord', function () {
     return view('admin/wordControl/newWord');
+});
+
+
+
+
+// admin 
+Route::get('/admin', function () {
+    return view('admin/dashboard/dashboard');
+});
+
+// test
+Route::get('/test', function () {
+    return view('includes/master2');
 });
