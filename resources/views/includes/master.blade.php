@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Phone Village</title>
-    {{ View::make('layout/style') }}
+    {{ View::make('includes/style') }}
 </head>
 
 {{-- <body class="bg-light">
@@ -27,16 +27,16 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        {{ View::make('layout/header') }}
+        {{ View::make('includes/header') }}
         @yield('content')
-        {{-- {{View::make('layout/footer')}} --}}
+        {{-- {{View::make('includes/footer')}} --}}
 
 
 
 
 
 
-        {{ View::make('layout/script') }}
+        {{ View::make('includes/script') }}
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-@extends('layout/master')
+@extends('includes/master')
 @section("content")
 
 
@@ -6,7 +6,7 @@
     <div class="container">
 
 
-        {{ View::make('layout/header') }}
+        {{ View::make('includes/header') }}
 
 
 

@@ -1,4 +1,4 @@
-@extends('layout/master')
+@extends('includes/master')
 @section("content")
 
 <link rel="stylesheet" href="{{ asset('css/card.css') }}">
