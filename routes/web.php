@@ -71,7 +71,7 @@ Route::get('admin/newWord', function () {
 Route::get('/admin', function () {
     return view('admin/dashboard/dashboard');
 });
-
+// word management 
 Route::get('/newword', function () {
     return view('admin/wordControl/newword');
 });
