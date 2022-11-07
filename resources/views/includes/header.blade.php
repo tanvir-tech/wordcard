@@ -3,7 +3,11 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box p-3">
-                <a href="index-2.html" class="logo logo-dark">
+                @if(Auth::guard('admin')->check())
+                <a href="/admin/dashboard" class="logo logo-dark">
+                @else
+                <a href="dashboard" class="logo logo-dark">
+                @endif
                     <span class="logo-sm">
                         {{-- <img src="{{ asset('images/logo.svg') }}" alt="" height="22"> --}}
                         <h2 class="text-info">
@@ -18,8 +22,14 @@
 
                     </span>
                 </a>
+                
 
+                @if(Auth::guard('admin')->check())
+                <a href="/admin/dashboard" class="logo logo-light">
+                @else
                 <a href="dashboard" class="logo logo-light">
+                @endif
+                
                     <span class="logo-sm">
                         {{-- <img src="{{ asset('images/logo-light.png') }}" alt="" height="22"> --}}
                         <h2 class="text-light bg-dark">
@@ -51,6 +61,8 @@
                     <a class="nav-link" href="/catList">Category</a>
                 </h5>
             </span>
+
+            
 
 
 
@@ -136,6 +148,8 @@
 
         </div>
     </div>
+
+    {{-- admin = {{Auth::guard('admin')->check()}} --}}
 </header>
 
 

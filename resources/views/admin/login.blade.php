@@ -50,5 +50,9 @@
                 </x-jet-button>
             </div>
         </form>
+        <br>
+        <div class="block items-center mt-4">
+            <a href="/login" >Login as admin</a>
+        </div>
     </x-jet-authentication-card>
 </x-guest-layout>
