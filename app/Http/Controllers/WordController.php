@@ -22,7 +22,8 @@ class WordController extends Controller
 
         $word->save();
 
-        return view('admin/wordControl/newword');
+        return redirect('/admin/newword');
+        // return view('admin/wordControl/newword');
     }
 
     function wordsequence($id)

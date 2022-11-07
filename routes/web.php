@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WordController;
 use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 
 
 /*
@@ -30,19 +31,21 @@ Route::middleware([
     'verified'
 ])->group(function () {
         Route::get('/admin/dashboard', function () {
-            return view('admin/dashboard/dashboard');})->name('dashboard')->middleware('auth:admin');
-
+            return view('admin/dashboard/dashboard');})->name('dashboard');
+            // ->middleware('auth:admin')
         Route::get('/admin', function () {
-            return view('dashboard');})->middleware('auth:admin');
+            return view('dashboard');});
 
         Route::get('/admin/newcat', function () {
-            return view('admin/wordControl/newcat');})->name('newcat')->middleware('auth:admin');
+            
+            return view('admin/wordControl/newcat');})->name('newcat');
 
         Route::get('/admin/newword', function () {
-            return view('admin/wordControl/newword');})->name('newword')->middleware('auth:admin');
+            $categories=Category::all();
+            return view('admin/wordControl/newword',['categories'=>$categories]);})->name('newword');
 
         Route::get('/admin/csv', function () {
-            return view('admin/wordControl/uploadcsv');})->name('csv')->middleware('auth:admin');
+            return view('admin/wordControl/uploadcsv');})->name('csv');
 
 });
 

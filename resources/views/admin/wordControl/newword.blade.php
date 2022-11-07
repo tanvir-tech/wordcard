@@ -38,26 +38,26 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="formrow-inputState" class="form-label">Category</label>
-                                <select id="formrow-inputState" class="form-select" name="category">
+                                <select id="formrow-inputState" class="form-select" name="category_id">
                                     <option selected="">Select one</option>
-                                    <option>Easy</option>
-                                    <option>Medium</option>
-                                    <option>Hard</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{$category['id']}}">{{$category['name']}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                        </div> --}}
+                        </div>
 
 
-                        <div class="col-lg-4">
+                        {{-- <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="formrow-firstname-input" class="form-label">Category ID</label>
                                 <input type="number" class="form-control" id="formrow-firstname-input" name="category_id"
                                     placeholder="Category ID">
                             </div>
-                        </div>
+                        </div> --}}
 
 
 
