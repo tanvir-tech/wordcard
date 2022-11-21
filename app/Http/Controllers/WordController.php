@@ -26,11 +26,14 @@ class WordController extends Controller
         // return view('admin/wordControl/newword');
     }
 
-    function wordsequence($id)
+    function wordsequence($id,Request $request)
     {
         $words=Word::where('category_id',$id)->paginate(1);;
         // dd($words);
-        return view('wordCard/wordCard',['words'=>$words]);
+
+        return response(view('wordCard/wordCard',['words'=>$words,'category_id'=>$id]))->cookie('category_id',$id);
+
+        // return view('wordCard/wordCard',['words'=>$words]);
 
     }
 }

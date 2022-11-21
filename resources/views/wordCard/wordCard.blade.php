@@ -30,38 +30,105 @@
                         </div>
 
                         <div class="theback">
-                            <h1>{{ $word['word'] }}</h1>
-                            <hr>
+                            <h2 class="mt-2">{{ $word['word'] }}</h2>
+                            --------------------------------------------------
                             <h4>{{ $word['pos'] }}</h4>
-                            <hr>
-                            <p>Meaning={{ $word['word'] }}</p>
+                            <p>Meaning : {{ $word['word'] }}</p>
                             <p>Sentence : {{ $word['sentence'] }}</p>
-                            <button class="btn btn-success">I knew</button>
-                            <button class="btn btn-danger">I didn't knew</button>
+                            <div class="bottom-btn row" id="dismissable-btn">
+                                <button class="btn btn-outline-success bottom-btn-left" onclick="master()">I knew</button>
+                                <button class="btn btn-outline-danger bottom-btn-right" onclick="learn()">I didn't knew</button>
+                            </div>
                         </div>
                     </div>
                     <br>
 
-
                     <label>Mastered: </label>
                     <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 5%;" aria-valuenow="5"
-                            aria-valuemin="0" aria-valuemax="100">5%</div>
+                        <div id="mastered" class="progress-bar bg-success" role="progressbar"></div>
                     </div>
                     <br>
                     <label>Reviewing: </label>
                     <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100">25%</div>
+                        <div id="reviewed" class="progress-bar bg-warning" role="progressbar"></div>
                     </div>
                     <br>
                     <label>Learning: </label>
                     <div class="progress">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100">50%</div>
+                        <div id="learning" class="progress-bar bg-danger" role="progressbar"></div>
                     </div>
-
                     <br>
+
+                    <script>
+                        // start counter from 0 only if null in local storage
+                        // otherwise get previous data to increase
+
+                        var category_id = "{{ $category_id }}";
+                        
+                        if (localStorage.getItem("mastercount").split("_")[0] == category_id) {
+                            var mc = localStorage.getItem("mastercount").split("_")[1];
+                        } else {
+                            localStorage.setItem("mastercount", category_id + "_" + 0);
+                        }
+
+                        if (localStorage.getItem("learningcount") != null && localStorage.getItem("learningcount").split("_")[0] == category_id ) {
+                            var lc = localStorage.getItem("learningcount").split("_")[1];
+                        } else {
+                            localStorage.setItem("learningcount", category_id + "_" + 0);
+                        }
+
+                        // if (localStorage.getItem("reviewedcount").split("_")[0] == category_id) {
+                        //     var rc = localStorage.getItem("reviewedcount").split("_")[1];
+                        // } else {
+                        //     localStorage.setItem("reviewedcount", category_id + "_" + 0);
+                        // }
+
+                        // get the local data
+                        var masteredcount = Number(mc) || 0;
+                        var learningcount = Number(lc) || 0;
+                        var reviewedcount = Number(masteredcount+learningcount) || 0;
+
+
+                        function master() {
+
+                            // increase local data
+                            var masteredcount = localStorage.getItem("mastercount").split("_")[1];
+                            masteredcount++;
+                            localStorage.setItem("mastercount", category_id + "_" + masteredcount);
+
+
+
+                            var mastered = document.getElementById("mastered");
+                            mastered.style = "width:" + masteredcount + "%";
+                            mastered.innerHTML = masteredcount;
+
+                            
+                        }
+
+                        function learn() {
+
+                            // increase local data
+                            var learningcount = localStorage.getItem("learningcount").split("_")[1];
+                            learningcount++;
+                            localStorage.setItem("learningcount", category_id + "_" + learningcount);
+
+                            var learning = document.getElementById("learning");
+                            learning.style = "width:" + learningcount + "%";
+                            learning.innerHTML = learningcount;
+                        }
+
+                        var mastered = document.getElementById("mastered")
+                        mastered.style = "width:" + masteredcount + "%";
+                        mastered.innerHTML = masteredcount;
+
+                        var reviewed = document.getElementById("reviewed")
+                        reviewed.style = "width:" + reviewedcount + "%";
+                        reviewed.innerHTML = reviewedcount;
+
+                        var learning = document.getElementById("learning")
+                        learning.style = "width:" + learningcount + "%";
+                        learning.innerHTML = learningcount;
+                    </script>
 
                     @if ($words->hasMorePages())
                         <div class="container justify-content-center d-flex m-5">
